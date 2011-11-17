@@ -1,0 +1,41 @@
+# Copy to local_settings.py and modify as needed.
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+SITE_ID = 1
+
+# Make this unique, and don't share it with anybody.
+# Generate one at http://www.miniwebtool.com/django-secret-key-generator/
+SECRET_KEY = ''
+
+# Database configuration.
+DATABASES = {
+	'default': {
+		'ENGINE': '',
+		'NAME': '',
+		'USER': '',
+		'PASSWORD': '',
+	}
+}
+
+# Site admins.
+ADMINS = (
+	# ('John Doe', 'john@example.com'),
+)
+MANAGERS = ADMINS
+
+# Absolute path to the directory static files should be collected to.
+STATIC_ROOT = ''
+
+# Celery settings.
+BROKER_HOST = ''
+BROKER_PORT = ''
+BROKER_VHOST = ''
+BROKER_USER = ''
+BROKER_PASSWORD = ''
+
+# Transit feed API keys.
+TRANSITFEED_API_KEYS = (
+	# ('WMATA', 'abcdefghij1234567890'),
+)
