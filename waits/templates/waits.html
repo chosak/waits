@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Metro Wait Times</title>
+<title>Metrorail Wait Times</title>
 </head>
 <body>
-<h1>Metro Wait Times</h1>
-{% for wait in waits %}
+<h1>Metrorail Wait Times</h1>
+<p>This page displays historical wait times for Metrorail trains, sorted by station name, line color, and destination.</p>
+<h3>Wait times over the last hour:</h3>
+{% for route, wait_times in waits %}
 <div>
-<div style="width: 500px; float: left;">{{ wait.location_name }} | {{ wait.line }} | {{ wait.destinations }} |</div><div><span class="inlinesparkline">{{ wait.wait_times }}</span></div>
+<div style="width: 300px; clear: left; float: left;">{{ route.location_name }} | {{ route.line }} | {{ route.destination_name }}</div>
+<div><span class="inlinesparkline">{% for wait_time in wait_times.values %}{{ wait_time|default_if_none:'null' }}{% if not forloop.last %},{% endif %}{% endfor %}</span></div>
 </div>
 {% endfor %}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
